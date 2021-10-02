@@ -9,8 +9,7 @@ class finanzas():
         self.s = salario
         print("Su salario ingresado es de: $",s)
     
-    def add_expenses(self,list_of_expenses):
-        self.list_of_expenses = list_of_expenses
+    def add_expenses_and_addup(self):
         list_of_expenses = []
         op = int(input())
         while op != 2:
@@ -20,21 +19,14 @@ class finanzas():
             list_of_expenses.append(ex)
             print(list_of_expenses)
         op = int(input())
-
-    def addup_expenses(self,list_of_expenses):
-        self.list_of_expenses = list_of_expenses
-        addup = sum(list_of_expenses)
-    
-    def alert(self,addup,salario):
-        if addup >= salario:
-            rest = addup-salario
+        if op==2:
+            self.list_of_expenses = list_of_expenses
+            addup = sum(list_of_expenses)
+            print(addup)
+        if int(addup) >= int(salario):
+            rest = int(addup)-int(salario)
             print("ATENCION! Tus gastos acaban de superar tu sueldo por $",rest)
-    
-    def errores(self):
-        print("falta agregar")
         
 f = finanzas(salario)
 f.add_salary(salario)
-f.add_expenses()
-f.addup_expenses()
-f.alert()
+f.add_expenses_and_addup()
